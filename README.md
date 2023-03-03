@@ -28,6 +28,8 @@ The pattern will be deployed from a local Repository, using Terraform.
 | (Optional) S3 variables | Edit the s3 bucket variables in `deploy/config.auto.tfvars`.
 
 ### Deploy Pattern
+| Story | Description |
+|---|---|
 | Deploy resources | Initialize the directory and apply |
 | (Optional) Test backups | Push a new commit to any repository in AWS CodeCommit and then monitor the relevant S3 bucket for a backup .zip file. |
 

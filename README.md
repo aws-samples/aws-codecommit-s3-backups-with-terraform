@@ -21,13 +21,15 @@ The pattern will be deployed from a local Repository, using Terraform.
 
 ## Epics
 
-### Define Variables
+### Define Variables
+
 | Story | Description |
 |---|---|
 | Mandatory variables | Edit values in `deploy/config.auto.tfvars`. The values that must be edited are `region` and `name`. `name` is the project name and is applied to the various resources created. 
 | (Optional) S3 variables | Edit the s3 bucket variables in `deploy/config.auto.tfvars`.
 
-### Deploy Pattern
+### Deploy Pattern
+
 | Story | Description |
 |---|---|
 | Deploy resources | Initialize the directory and apply |

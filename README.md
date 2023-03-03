@@ -19,19 +19,12 @@ The pattern will be deployed from a local Repository, using Terraform.
 4. CodeBuild clones the repository and packages it into a .zip file.
 5. CodeBuild uploads the .zip file to an S3 bucket. 
 
-## Epics
+## Deploy Pattern
 
-### Define Variables
-
-| Story | Description |
-|---|---|
-| Mandatory variables | Edit values in `deploy/config.auto.tfvars`. The values that must be edited are `region` and `name`. `name` is the project name and is applied to the various resources created. 
-| (Optional) S3 variables | Edit the s3 bucket variables in `deploy/config.auto.tfvars`.
-
-### Deploy Pattern
 
 | Story | Description |
 |---|---|
+| Edit variables | Edit values in `deploy/config.auto.tfvars`. The values that must be edited are `region` and `name`. `name` is the project name and is applied to the various resources created. 
 | Deploy resources | Initialize the directory and apply |
 | (Optional) Test backups | Push a new commit to any repository in AWS CodeCommit and then monitor the relevant S3 bucket for a backup .zip file. |
 

@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - pip install git-remote-codecommit
+  build:
+    commands:
+       - env
+       - git clone -b $REFERENCE_NAME codecommit::$REPO_REGION://$REPOSITORY_NAME
+       - dt=$(date '+%d-%m-%Y-%H:%M:%S');
+       - echo "$dt" 
+       - zip -yr $dt-$REPOSITORY_NAME-backup.zip ./
+       - aws s3 cp $dt-$REPOSITORY_NAME-backup.zip s3://$BUCKET

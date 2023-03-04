@@ -18,7 +18,7 @@ resource "aws_codebuild_project" "this" {
 
     environment_variable {
       name  = "BUCKET"
-      value = "${data.aws_caller_identity.current.account_id}-${var.name}"
+      value = "${var.name}-${data.aws_caller_identity.current.account_id}"
     }
   }
 

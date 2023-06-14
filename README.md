@@ -2,6 +2,8 @@
 
 This pattern uses Terraform to backup AWS CodeCommit repositories to Amazon S3. 
 
+[Deleting an AWS CodeCommit repository is a destructive one-way operation that cannot be undone](https://aws.amazon.com/codecommit/faqs/). 
+
 ## Prerequisites
 
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
@@ -20,7 +22,6 @@ The pattern will be deployed from a local Repository, using Terraform.
 5. CodeBuild uploads the .zip file to an S3 bucket. 
 
 ## Deploy Pattern
-
 
 | Story | Description |
 |---|---|

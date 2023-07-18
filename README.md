@@ -1,8 +1,8 @@
-## aws-codecommit-s3-backups-with-terraform
+## AWS CodeCommit S3 backups with Terraform
 
-This pattern uses Terraform to backup AWS CodeCommit repositories to Amazon S3. 
+🥕 Carrot: Easily backup your AWS CodeCommit repositories to S3 with Terraform. 
 
-[Deleting an AWS CodeCommit repository is a destructive one-way operation that cannot be undone](https://aws.amazon.com/codecommit/faqs/). 
+🎋 Stick: [Deleting an AWS CodeCommit repository is a destructive one-way operation that cannot be undone](https://aws.amazon.com/codecommit/faqs/). 
 
 ## Prerequisites
 
@@ -11,23 +11,17 @@ This pattern uses Terraform to backup AWS CodeCommit repositories to Amazon S3.
 - A repository in AWS CodeCommit
 
 ## Architecture
-The pattern will be deployed from a local Repository, using Terraform. 
-
 ![image info](./img/architecture.png)
 
-1. Code is pushed to a repository in AWS CodeCommit.
+1. Users push code to a repository in CodeCommit.
 2. Amazon EventBridge monitors for changes to any repository.
 3. EventBridge invokes AWS CodeBuild and sends it information about the repository. 
 4. CodeBuild clones the repository and packages it into a .zip file.
 5. CodeBuild uploads the .zip file to an S3 bucket. 
 
-## Deploy Pattern
-
-| Story | Description |
-|---|---|
-| Edit variables | Edit values in `deploy/config.auto.tfvars`. The values that must be edited are `region` and `name`. `name` is the project name and is applied to the various resources created. 
-| Deploy resources | Initialize the directory and apply |
-| (Optional) Test backups | Push a new commit to any repository in AWS CodeCommit and then monitor the relevant S3 bucket for a backup .zip file. |
+## Deployment
+1. Edit the variables in  in `deploy/config.auto.tfvars`. The values that must be edited are `region` and `name`. `name` is the project name and is applied to the various resources created. 
+2. Initialize the directory and deploy. 
 
 ## Troubleshooting
 

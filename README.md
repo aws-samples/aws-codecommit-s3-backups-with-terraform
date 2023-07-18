@@ -1,8 +1,10 @@
 ## AWS CodeCommit S3 backups with Terraform
 
-🥕 Easily backup your AWS CodeCommit repositories to S3 with Terraform. 
+Take the <span style="color: red">red pill</span> and easily backup your AWS CodeCommit repositories to S3 with Terraform 
 
-🎋 [Deleting an AWS CodeCommit repository is a destructive one-way operation that cannot be undone](https://aws.amazon.com/codecommit/faqs/). 
+*...or...*
+
+Take the <span style="color: blue"> blue pill</span>  and discover that [deleting an AWS CodeCommit repository is a destructive one-way operation that cannot be undone](https://aws.amazon.com/codecommit/faqs/).
 
 ## Prerequisites
 

@@ -10,7 +10,7 @@ Take the <span style="color: blue"> blue pill</span>  and discover that [deletin
 
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
-- A repository in AWS CodeCommit
+- At least one AWS CodeCommit repository
 
 ## Architecture
 ![image info](./img/architecture.png)

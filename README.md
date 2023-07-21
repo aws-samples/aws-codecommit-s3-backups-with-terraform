@@ -1,6 +1,6 @@
 ## AWS CodeCommit S3 backups with Terraform
 
-Take the <span style="color: red">red pill</span> and easily backup your AWS CodeCommit repositories to S3 with Terraform 
+Take the <span style="color: red">red pill</span> and backup your AWS CodeCommit repositories to S3 with Terraform 
 
 *...or...*
 

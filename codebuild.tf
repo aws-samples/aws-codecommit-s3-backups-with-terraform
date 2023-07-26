@@ -51,6 +51,14 @@ data "aws_iam_policy_document" "codebuild_assume" {
       type        = "Service"
       identifiers = ["codebuild.amazonaws.com"]
     }
+
+    condition {
+      test     = "StringEquals"
+      variable = "aws:SourceArn"
+      values = [
+        "arn:aws:codebuild:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:project/${var.name}"
+      ]
+    }
   }
 }
 
@@ -98,7 +106,8 @@ data "aws_iam_policy_document" "codebuild" {
     ]
 
     resources = [
-      "*"
+      "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:log-group:/aws/codebuild/${var.name}",
+      "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:log-group:/aws/codebuild/${var.name}:*"
     ]
   }
 }

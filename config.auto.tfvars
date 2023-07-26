@@ -1,7 +1,7 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
 
-region = ""
+region = "eu-west-2"
 name   = "codecommit-backups"
 
 #for the s3 backups bucket

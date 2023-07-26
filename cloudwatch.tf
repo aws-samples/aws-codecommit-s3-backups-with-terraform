@@ -84,7 +84,17 @@ data "aws_iam_policy_document" "cloudwatch_assume" {
       type        = "Service"
       identifiers = ["events.amazonaws.com"]
     }
+
+    condition {
+      test     = "StringEquals"
+      variable = "aws:SourceAccount"
+      values = [
+        data.aws_caller_identity.current.account_id
+      ]
+    }
   }
+
+  
 }
 
 resource "aws_iam_role_policy_attachment" "cloudwatch" {
@@ -105,7 +115,7 @@ data "aws_iam_policy_document" "cloudwatch" {
     ]
 
     resources = [
-      "*"
+      aws_codebuild_project.this.arn
     ]
   }
 

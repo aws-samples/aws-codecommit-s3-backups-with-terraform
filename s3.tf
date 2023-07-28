@@ -52,20 +52,3 @@ data "aws_iam_policy_document" "this" {
     }
   }
 }
-
-resource "aws_s3_bucket_lifecycle_configuration" "this" {
-  count = var.enable_retention ? 1 : 0
-
-  bucket = aws_s3_bucket.this.id
-
-  rule {
-    id = "retention-policy-${var.retention_in_days}-days"
-
-    expiration {
-      days = var.retention_in_days
-    }
-
-    status = "Enabled"
-  }
-}
-

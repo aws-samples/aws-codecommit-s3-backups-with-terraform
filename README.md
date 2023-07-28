@@ -1,6 +1,6 @@
-## AWS CodeCommit S3 backups with Terraform
+## AWS CodeCommit S3 backups with Terraform module
 
-Take the <span style="color: red">red pill</span> and backup your AWS CodeCommit repositories to S3 with Terraform 
+Take the <span style="color: red">red pill</span> and backup your AWS CodeCommit repositories to S3 with a Terraform module.  
 
 *...or...*
 
@@ -21,9 +21,16 @@ Take the <span style="color: blue"> blue pill</span>  and discover that [deletin
 4. CodeBuild clones the repository and packages it into a .zip file.
 5. CodeBuild uploads the .zip file to an S3 bucket. 
 
-## Deployment
-1. Edit the variables in  in `deploy/config.auto.tfvars`. The values that must be edited are `region` and `name`. `name` is the project name and is applied to the various resources created. 
-2. Initialize the directory and deploy. 
+## Module Inputs
+
+```
+module "codecommit_s3_backup" {
+  source = "github.com/aws-samples/aws-codecommit-s3-backups-with-terraform"
+  name   = "codecommit-s3-backup"
+}
+```
+
+The `name` will be used in the resource names, such as eventbridge rules and IAM roles. 
 
 ## Troubleshooting
 

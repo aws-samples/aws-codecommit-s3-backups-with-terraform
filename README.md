@@ -23,6 +23,8 @@ Take the <span style="color: blue"> blue pill</span>  and discover that [deletin
 
 ## Module Inputs
 
+This module is designed for a [GitHub source type](https://developer.hashicorp.com/terraform/language/modules/sources#github) but it could be cloned and deployed locally, or from a private registry.  
+
 ```
 module "codecommit_s3_backup" {
   source = "github.com/aws-samples/aws-codecommit-s3-backups-with-terraform"

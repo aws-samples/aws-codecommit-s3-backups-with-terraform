@@ -30,7 +30,7 @@ resource "aws_codebuild_project" "this" {
 
   source {
     type                = "NO_SOURCE"
-    buildspec           = data.local_file.buildspec.content
+    buildspec           = file("${path.module}/buildspec.yml")
     git_clone_depth     = 0
     insecure_ssl        = false
     report_build_status = false

@@ -1,16 +1,34 @@
 ## AWS CodeCommit S3 backups with Terraform module
 
-Take the <span style="color: red">red pill</span> and backup your AWS CodeCommit repositories to S3 with a Terraform module.  
+Backup your AWS CodeCommit repositories to Amazon S3. 
 
-*...or...*
-
-Take the <span style="color: blue"> blue pill</span>  and discover that [deleting an AWS CodeCommit repository is a destructive one-way operation that cannot be undone](https://aws.amazon.com/codecommit/faqs/).
+(or risk unwillingly discovering that [deleting an AWS CodeCommit repository is a one-way operation](https://aws.amazon.com/codecommit/faqs/))
 
 ## Prerequisites
 
-- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-- [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
-- At least one AWS CodeCommit repository
+- An [AWS CodeCommit repository](https://docs.aws.amazon.com/codecommit/latest/userguide/repositories.html)
+
+## Module Inputs
+
+This module is designed for a [GitHub source type](https://developer.hashicorp.com/terraform/language/modules/sources#github) but it could be cloned and deployed locally, or from a private registry.  
+
+```hcl
+module "codecommit_s3_backup" {
+  source = "github.com/aws-samples/aws-codecommit-s3-backups-with-terraform"
+  name   = "codecommit-s3-backup" 
+}
+```
+The `name` will be used in the resource names, such as eventbridge rules and IAM roles. 
+
+### Optional Inputs
+
+```hcl
+module "codecommit_s3_backup" {
+  ...
+  s3_logging_bucket = "S3 server access logging bucket name"
+ }
+```
+
 
 ## Architecture
 ![image info](./img/architecture.png)
@@ -20,19 +38,6 @@ Take the <span style="color: blue"> blue pill</span>  and discover that [deletin
 3. EventBridge invokes AWS CodeBuild and sends it information about the repository. 
 4. CodeBuild clones the repository and packages it into a .zip file.
 5. CodeBuild uploads the .zip file to an S3 bucket. 
-
-## Module Inputs
-
-This module is designed for a [GitHub source type](https://developer.hashicorp.com/terraform/language/modules/sources#github) but it could be cloned and deployed locally, or from a private registry.  
-
-```
-module "codecommit_s3_backup" {
-  source = "github.com/aws-samples/aws-codecommit-s3-backups-with-terraform"
-  name   = "codecommit-s3-backup"
-}
-```
-
-The `name` will be used in the resource names, such as eventbridge rules and IAM roles. 
 
 ## Troubleshooting
 

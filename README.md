@@ -1,4 +1,4 @@
-## AWS CodeCommit S3 backups with Terraform module
+## CodeCommit S3 backups with Terraform 
 
 Backup your AWS CodeCommit repositories to Amazon S3. 
 

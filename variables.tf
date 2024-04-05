@@ -4,3 +4,8 @@
 variable "name" {
   type = string
 }
+
+variable "s3_logging_bucket" {
+  type    = string
+  default = ""
+}

@@ -9,3 +9,8 @@ variable "s3_logging_bucket" {
   type    = string
   default = ""
 }
+
+variable "kms_key" {
+  type    = string
+  default = ""
+}

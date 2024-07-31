@@ -25,9 +25,14 @@ The `name` will be used in the resource names, such as eventbridge rules and IAM
 ```hcl
 module "codecommit_s3_backup" {
   ...
-  s3_logging_bucket = "S3 server access logging bucket name"
+  kms_key               = aws_kms_key.this.arn
+  access_logging_bucket = aws_s3_bucket.this.id
  }
 ```
+
+`kms_key` can be used to encrypt the Amazon S3 bucket with a AWS KMS key of your choice. Otherwise the bucket will be encrypted using SSE-S3. Your AWS KMS key policy will need to allow codebuild to `kms:GenerateDataKey*` and `kms:Decrypt`.
+
+`access_logging_bucket` is the arn of your Amazon S3 access logging bucket. 
 
 
 ## Architecture

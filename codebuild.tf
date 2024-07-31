@@ -110,5 +110,17 @@ data "aws_iam_policy_document" "codebuild" {
       "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:log-group:/aws/codebuild/${var.name}:*"
     ]
   }
-}
 
+  statement {
+    effect = "Allow"
+    actions = [
+      "kms:GenerateDataKey*",
+      "kms:Decrypt"
+    ]
+
+    resources = [
+      "*"
+    ]
+  }
+
+}

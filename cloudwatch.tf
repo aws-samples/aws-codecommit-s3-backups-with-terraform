@@ -94,7 +94,7 @@ data "aws_iam_policy_document" "cloudwatch_assume" {
     }
   }
 
-  
+
 }
 
 resource "aws_iam_role_policy_attachment" "cloudwatch" {
@@ -130,3 +130,4 @@ data "aws_iam_policy_document" "cloudwatch" {
     ]
   }
 }
+

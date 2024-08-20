@@ -72,3 +72,4 @@ resource "aws_s3_bucket_logging" "this" {
   target_bucket = var.s3_logging_bucket
   target_prefix = "${aws_s3_bucket.this.id}/"
 }
+

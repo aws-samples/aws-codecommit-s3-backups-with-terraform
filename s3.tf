@@ -15,7 +15,7 @@ resource "aws_s3_bucket_public_access_block" "this" {
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
-  count  = var.kms_key == "" ? 1 : 0
+  count  = var.kms_key == null ? 1 : 0
   bucket = aws_s3_bucket.this.bucket
 
   rule {
@@ -26,7 +26,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "that" {
-  count  = var.kms_key == "" ? 0 : 1
+  count  = var.kms_key == null ? 0 : 1
   bucket = aws_s3_bucket.this.bucket
 
   rule {
@@ -67,7 +67,7 @@ data "aws_iam_policy_document" "this" {
 }
 
 resource "aws_s3_bucket_logging" "this" {
-  count         = var.s3_logging_bucket == "" ? 0 : 1
+  count         = var.s3_logging_bucket == null ? 0 : 1
   bucket        = aws_s3_bucket.this.id
   target_bucket = var.s3_logging_bucket
   target_prefix = "${aws_s3_bucket.this.id}/"

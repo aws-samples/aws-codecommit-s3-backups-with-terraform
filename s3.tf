@@ -15,24 +15,12 @@ resource "aws_s3_bucket_public_access_block" "this" {
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
-  count  = var.kms_key == "" ? 1 : 0
   bucket = aws_s3_bucket.this.bucket
 
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
-    }
-  }
-}
-
-resource "aws_s3_bucket_server_side_encryption_configuration" "that" {
-  count  = var.kms_key == "" ? 0 : 1
-  bucket = aws_s3_bucket.this.bucket
-
-  rule {
-    apply_server_side_encryption_by_default {
-      kms_master_key_id = var.kms_key
-      sse_algorithm     = "aws:kms"
+      kms_master_key_id = try(var.kms_key, null)
+      sse_algorithm     = can(var.kms_key) ? "aws:kms" : "AES256"
     }
   }
 }
@@ -67,8 +55,9 @@ data "aws_iam_policy_document" "this" {
 }
 
 resource "aws_s3_bucket_logging" "this" {
-  count         = var.s3_logging_bucket == "" ? 0 : 1
+  count         = var.s3_logging_bucket == null ? 0 : 1
   bucket        = aws_s3_bucket.this.id
   target_bucket = var.s3_logging_bucket
   target_prefix = "${aws_s3_bucket.this.id}/"
 }
+

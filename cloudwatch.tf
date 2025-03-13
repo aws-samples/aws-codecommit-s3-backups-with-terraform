@@ -4,6 +4,7 @@
 resource "aws_cloudwatch_log_group" "this" {
   name              = "/aws/codebuild/${var.name}"
   retention_in_days = 30
+  kms_key_id        = var.kms_key
 }
 
 resource "aws_cloudwatch_event_rule" "this" {

@@ -30,7 +30,7 @@ module "codecommit_s3_backup" {
  }
 ```
 
-`kms_key` can be used to encrypt the Amazon S3 bucket with a AWS KMS key of your choice. Otherwise the bucket will be encrypted using SSE-S3. Your AWS KMS key policy will need to allow codebuild to `kms:GenerateDataKey*` and `kms:Decrypt`.
+`kms_key` can be used to encrypt the Amazon S3 bucket with a AWS KMS key of your choice. Otherwise the bucket will be encrypted using SSE-S3. Your AWS KMS key policy will need to follow [CloudWatch Logs guidance for AWS KMS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html) and [CodeBuild guidance for AWS KMS](https://docs.aws.amazon.com/codebuild/latest/userguide/setting-up-kms.html). 
 
 `access_logging_bucket` is the arn of your Amazon S3 access logging bucket. 
 

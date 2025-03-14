@@ -2,11 +2,7 @@
 
 Backup your AWS CodeCommit repositories to Amazon S3. 
 
-(or risk unwillingly discovering that [deleting an AWS CodeCommit repository is a one-way operation](https://aws.amazon.com/codecommit/faqs/))
-
-## Prerequisites
-
-- An [AWS CodeCommit repository](https://docs.aws.amazon.com/codecommit/latest/userguide/repositories.html)
+(or risk discovering that [deleting an AWS CodeCommit repository is a one-way operation](https://aws.amazon.com/codecommit/faqs/))
 
 ## Module Inputs
 

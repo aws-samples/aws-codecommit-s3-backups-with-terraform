@@ -36,7 +36,9 @@ module "codecommit_s3_backup" {
 
 
 ## Architecture
-![image info](./img/architecture.png)
+<div align="center">
+<img alt="architecture" width="600" src="./img/architecture.png" />
+</div>
 
 1. Users push code to a repository in CodeCommit.
 2. Amazon EventBridge monitors for changes to any repository.

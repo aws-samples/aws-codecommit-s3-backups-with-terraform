@@ -14,7 +14,7 @@ module "codecommit_s3_backup" {
   name   = "codecommit-s3-backup" 
 }
 ```
-The `name` will be used in the resource names, such as eventbridge rules and IAM roles. 
+The `name` will be used in the resource names. 
 
 ### Optional Inputs
 

@@ -1,4 +1,4 @@
-## CodeCommit S3 backups with Terraform 
+## aws-terraform-codeCommit-s3-backups
 
 Backup your AWS CodeCommit repositories to Amazon S3. 
 
@@ -9,9 +9,10 @@ Backup your AWS CodeCommit repositories to Amazon S3.
 This module is designed for a [GitHub source type](https://developer.hashicorp.com/terraform/language/modules/sources#github) but it could be cloned and deployed locally, or from a private registry.  
 
 ```hcl
-module "codecommit_s3_backup" {
-  source = "github.com/aws-samples/aws-codecommit-s3-backups-with-terraform"
-  name   = "codecommit-s3-backup" 
+module "codecommit-s3-backups" {
+  source  = "aws-samples/codecommit-s3-backups/aws"
+  version = "2.2.2"
+  name    = "codecommit-s3-backup" 
 }
 ```
 The `name` will be used in the resource names. 
@@ -53,6 +54,7 @@ module "codecommit_s3_backup" {
 - [Automate event-driven backups from CodeCommit to Amazon S3 using CodeBuild and CloudWatch Events](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/automate-event-driven-backups-from-codecommit-to-amazon-s3-using-codebuild-and-cloudwatch-events.html)
 - [Resource: aws_codebuild_project](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/codebuild_project)
 - [Resource: aws_cloudwatch_event_rule](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_rule)
+- [Terraform Registry](https://registry.terraform.io/modules/aws-samples/codecommit-s3-backups/aws/latest)
 
 ## Security
 

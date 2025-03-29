@@ -52,9 +52,7 @@ module "codecommit_s3_backup" {
 ## Related Resources
 
 - [Automate event-driven backups from CodeCommit to Amazon S3 using CodeBuild and CloudWatch Events](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/automate-event-driven-backups-from-codecommit-to-amazon-s3-using-codebuild-and-cloudwatch-events.html)
-- [Resource: aws_codebuild_project](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/codebuild_project)
-- [Resource: aws_cloudwatch_event_rule](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_rule)
-- [Terraform Registry](https://registry.terraform.io/modules/aws-samples/codecommit-s3-backups/aws/latest)
+- [Terraform Registry: aws-samples/codecommit-s3-backups/aws](https://registry.terraform.io/modules/aws-samples/codecommit-s3-backups/aws/latest)
 
 ## Security
 
